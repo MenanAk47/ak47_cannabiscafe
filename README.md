@@ -13,6 +13,12 @@
 <li>Shop management.</li>
 <li>Stock system for bong tables.</li>
 </ol>
+<p><strong>Dependency: </strong></p>
+<ol>
+<li>es_extended</li>
+<li>esx_society</li>
+<li>esx_addonaccount</li>
+</ol>
 <p><strong>How to install:</strong></p>
 <ol>
 <li>Download file as zip</li>
