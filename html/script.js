@@ -15,7 +15,7 @@ $(function() {
             var soundId = audioPlayer.play();
             audioPlayer.on('end', function(){
                 audioPlayer = null;
-                $.post('http://ak47_cannabiscafe/audioend', JSON.stringify({id:playId}));
+                $.post('https://ak47_cannabiscafe/audioend', JSON.stringify({id:playId}));
             });
             
             audioPlayer.once('play', function(){
@@ -32,7 +32,7 @@ $(function() {
             });
 
             while (audioPlayer != null) {
-                $.post('http://ak47_cannabiscafe/getvolume', JSON.stringify({
+                $.post('https://ak47_cannabiscafe/getvolume', JSON.stringify({
                     id: playId
                 }), function(cb) {
                     if (audioPlayer != null) {
@@ -91,7 +91,7 @@ $(function() {
                 $("#" + item).hide();
 
 
-                $.post('http://ak47_cannabiscafe/putcart', JSON.stringify({
+                $.post('https://ak47_cannabiscafe/putcart', JSON.stringify({
                     item: item,
                     price: price,
                     label: label,
@@ -130,12 +130,12 @@ $(function() {
             });
 
             $("body").on("click", "#refreshcart", function() {
-                $.post('http://ak47_cannabiscafe/escape', JSON.stringify({}));
+                $.post('https://ak47_cannabiscafe/escape', JSON.stringify({}));
                 location.reload(true);
                 $('#wrapper').hide("fast");
                 $('#payment').hide("fast");
                 $('#cart').hide("fast");
-                $.post('http://ak47_cannabiscafe/refresh', JSON.stringify({}));
+                $.post('https://ak47_cannabiscafe/refresh', JSON.stringify({}));
             });
 
             $("body").on("click", "#back", function() {
@@ -154,18 +154,18 @@ $(function() {
                     var count = $('#' + value[i].id).attr('count');
                     var price = $('#' + value[i].id).attr('price');
                     if (parseInt(count) >= parseInt(value[i].value) && parseInt(value[i].value) != 0 && isNumber) {
-                        $.post('http://ak47_cannabiscafe/escape', JSON.stringify({}));
+                        $.post('https://ak47_cannabiscafe/escape', JSON.stringify({}));
                         location.reload(true);
                         $('#wrapper').hide("fast");
                         $('#payment').hide("fast");
                         $('#cart').hide("fast");
-                        $.post('http://ak47_cannabiscafe/buy', JSON.stringify({
+                        $.post('https://ak47_cannabiscafe/buy', JSON.stringify({
                         	Price: price,
                             Count: value[i].value,
                             Item: value[i].id
                         }));
                     } else {
-                        $.post('http://ak47_cannabiscafe/notify', JSON.stringify({
+                        $.post('https://ak47_cannabiscafe/notify', JSON.stringify({
                             msg: "~r~One of the item does not have enough stock or the amount is invalid."
                         }));
                     }
@@ -174,10 +174,10 @@ $(function() {
 
 
             $("body").on("click", "#bossactions", function() {
-                $.post('http://ak47_cannabiscafe/bossactions', JSON.stringify({}));
-                $.post('http://ak47_cannabiscafe/escape', JSON.stringify({}));
+                $.post('https://ak47_cannabiscafe/bossactions', JSON.stringify({}));
+                $.post('https://ak47_cannabiscafe/escape', JSON.stringify({}));
                 location.reload(true);
-                $.post('http://ak47_cannabiscafe/emptycart', JSON.stringify({}));
+                $.post('https://ak47_cannabiscafe/emptycart', JSON.stringify({}));
                 $('#wrapper').hide("fast");
                 $('#payment').hide("fast");
                 $('#cart').hide("fast");
@@ -190,9 +190,9 @@ $(function() {
 
     document.onkeyup = function(data) {
         if (data.which == 27) { // Escape key
-            $.post('http://ak47_cannabiscafe/escape', JSON.stringify({}));
+            $.post('https://ak47_cannabiscafe/escape', JSON.stringify({}));
             location.reload(true);
-            $.post('http://ak47_cannabiscafe/emptycart', JSON.stringify({}));
+            $.post('https://ak47_cannabiscafe/emptycart', JSON.stringify({}));
             $('#wrapper').hide("fast");
             $('#payment').hide("fast");
             $('#cart').hide("fast");
