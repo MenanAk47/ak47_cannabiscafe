@@ -25,6 +25,10 @@ AddEventHandler('ak47_cannabiscafe:openbossaction', function()
         menu.close()
         inBossMenu = false
     end)
+    TriggerEvent('society:openBossMenu', 'cannabiscafe', function(data, menu)
+        menu.close()
+        inBossMenu = false
+    end)
 end)
 
 RegisterNetEvent('ak47_cannabiscafe:notify')

@@ -2,6 +2,7 @@ ESX = nil
 TriggerEvent(Config.SharedObjectName, function(obj) ESX = obj end)
 
 TriggerEvent('esx_society:registerSociety', 'cannabiscafe', 'cannabiscafe', 'society_cannabiscafe', 'society_cannabiscafe', 'society_cannabiscafe', {type = 'private'})
+TriggerEvent('society:registerSociety', 'cannabiscafe', 'cannabiscafe', 'society_cannabiscafe', 'society_cannabiscafe', 'society_cannabiscafe', {type = 'private'})
 
 function getSocietyMoney()
 	local money = nil
